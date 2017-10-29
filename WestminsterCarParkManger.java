@@ -8,20 +8,20 @@ import vehicle.park.Vehicle;
 
 public class WestminsterCarParkManger implements CarParkManager {
 	//arraylist to hold objects
-	static List<Vehicle> vehicle = new ArrayList<Vehicle>();
+	static List<Vehicle> vehicle = new ArrayList<>();
 	
 	static int parkingSlots = 0;
-	static int carCount =0;
-	static int vanCount =0;
-	static int bikeCount =0;
-	static int numberOfVehicles =0;
-	static int hours=0;
+	static int carCount = 0;
+	static int vanCount = 0;
+	static int bikeCount = 0 ;
+	static int numberOfVehicles = 0;
+	static int hours = 0;
 	static int parkingSlot = 0;
 	
 	static String vehicleType = null;
 	static String vehicleId = null;
 	static String vehicleBrand =  null;
-	static String date=null;
+	static String date = null;
 	
 	static Scanner sc = new Scanner(System.in);
 	
