@@ -10,6 +10,7 @@ public class WestminsterCarParkManger implements CarParkManager {
 	//arraylist to hold objects
 	static List<Vehicle> vehicle = new ArrayList<Vehicle>();
 	
+	//declaring global static variables for storing count of parking slots,car,van ,bike,number of vehicles,hours,parking slot. 
 	static int parkingSlots = 0;
 	static int carCount =0;
 	static int vanCount =0;
@@ -18,18 +19,23 @@ public class WestminsterCarParkManger implements CarParkManager {
 	static int hours=0;
 	static int parkingSlot = 0;
 	
+	//declaring global static String variables for storing vehicle type,vehicle id,vehicle brand,vehicle brand and date.
 	static String vehicleType = null;
 	static String vehicleId = null;
 	static String vehicleBrand =  null;
 	static String date=null;
 	
+	//declaring Scanner object for taking input from the console.
 	static Scanner sc = new Scanner(System.in);
 	
+	//Driver class
 	public static void main(String[] args) throws IOException{
 		WestminsterCarParkManger carpark = new WestminsterCarParkManger();
 		
 		String menu = null;
 		
+		//Menu-Driven Program.
+
 		do{
 			System.out.println();
 
@@ -113,6 +119,7 @@ public class WestminsterCarParkManger implements CarParkManager {
 		double cargoVolume = 0.0;
 		double engineSize = 0.0;
 		
+		//declaring the variables for storing day,month and year.
 		int day =0;
 		int month =0;
 		int year =0;
@@ -155,12 +162,13 @@ public class WestminsterCarParkManger implements CarParkManager {
 		if(vehicleType.equalsIgnoreCase("CAR") && parkingSlots<21){
 			System.out.println("Enter the color of the CAR :");
 			carColor = sc.next().toUpperCase();
-			System.out.println("Eneter the NUmber of Doors in the CAR :");
+			System.out.println("Enter the NUmber of Doors in the CAR :");
 			numberofDoors = sc.nextInt();
-			
+			//creating object of car which stores information of car and implements vehicle interface
 			Car car = new Car(vehicleId,vehicleBrand,vehicleType,year,month,day,hours,numberofDoors,carColor); 
 			
 			vehicle.add(car);
+			//size occupied by one car is 1 slot
 			parkingSlots = parkingSlots +1;
 			carCount++;
 			numberOfVehicles++;
@@ -169,9 +177,9 @@ public class WestminsterCarParkManger implements CarParkManager {
 		if(vehicleType.equalsIgnoreCase("VAN") && parkingSlots<21){
 			System.out.println("Enter the Cargo Volume of the VAN :");
 			cargoVolume = sc.nextDouble();
-			
+			//creating object of van which stores information of van and implements vehicle interface
 			Van van = new Van(vehicleId,vehicleBrand,vehicleType,year,month,day,hours,cargoVolume);
-			
+			//size occupied by one van is 2 slots
 			parkingSlots = parkingSlots +2;
 			vehicle.add(van);
 			vanCount++;
@@ -181,9 +189,10 @@ public class WestminsterCarParkManger implements CarParkManager {
 		if(vehicleType.equalsIgnoreCase("MOTORBIKE") && parkingSlots<21){
 			System.out.println("Enter the Engine Capacity of the MotorBike :");
 			engineSize = sc.nextDouble();
-			
+			//creating object of motorbike which stores information of bike and imlplements vehicle interface
 			MotorBike bike = new MotorBike(vehicleId,vehicleBrand,vehicleType,year,month,day,hours,engineSize);
-			
+
+			//size occupied by one motorbike is 1 slot
 			parkingSlots = parkingSlots +1;
 			vehicle.add(bike);
 			bikeCount++;
@@ -226,7 +235,7 @@ public class WestminsterCarParkManger implements CarParkManager {
 		parkingSlot = sc.nextInt();
 		
 		for(int i=0;i<vehicle.size();i++){
-			
+			//If the vehicle parked is exited..then  updating the information in vehicle list
 			if(vehicle.get(i).getVehicleId().equalsIgnoreCase(vehicleId) && vehicle.get(i).getVehicleType().equalsIgnoreCase(vehicleType)){
 				System.out.println("Details for vehicle "+vehicle.get(i).getVehicleId()+" deleted..");
 				if(vehicleType.equalsIgnoreCase("CAR") || vehicleType.equalsIgnoreCase("MOTORBIKE")){
@@ -343,7 +352,7 @@ public class WestminsterCarParkManger implements CarParkManager {
 			
 		}
 	}
-	
+	//function to check if input string is valid according to given instructions.
 	public boolean validation(int input,String str){
 		boolean validity = true;
 		do{
