@@ -1,5 +1,7 @@
 package vehicle.park;
 
+// This class respresents a car like object,
+// and returns number of doors and the color that car.
 public class Car extends Vehicle{
 	private int numofDoors;
 	private String color;
