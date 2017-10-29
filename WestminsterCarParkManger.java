@@ -32,7 +32,6 @@ public class WestminsterCarParkManger implements CarParkManager {
 		
 		do{
 			System.out.println();
-			sysout
 
 			//menu to select functions
 			System.out.println("************************************************************************************************");
