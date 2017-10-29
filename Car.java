@@ -1,6 +1,8 @@
 package vehicle.park;
 
-
+/**
+* Car Object extends Vehicle Class
+*/
 public class Car extends Vehicle{
 	private int numofDoors;
 	private String color;
