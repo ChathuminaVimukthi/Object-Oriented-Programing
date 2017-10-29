@@ -8,7 +8,7 @@ import vehicle.park.Vehicle;
 
 public class WestminsterCarParkManger implements CarParkManager {
 	//arraylist to hold objects
-	static List<Vehicle> vehicle = new ArrayList<>();
+	static List<Vehicle> vehicles = new ArrayList<>();
 	
 	static int parkingSlots = 0;
 	static int carCount = 0;
@@ -32,6 +32,7 @@ public class WestminsterCarParkManger implements CarParkManager {
 		
 		do{
 			System.out.println();
+			sysout
 
 			//menu to select functions
 			System.out.println("************************************************************************************************");
@@ -100,8 +101,8 @@ public class WestminsterCarParkManger implements CarParkManager {
 	
 	//function to view the vehicles currently parked
 	public void view(){
-		for(int i=0;i<vehicle.size();i++){
-			System.out.println(vehicle.get(i).getVehicleId());
+		for(int i=0;i<vehicles.size();i++){
+			System.out.println(vehicles.get(i).getVehicleId());
 		}
 	}
 	
@@ -160,7 +161,7 @@ public class WestminsterCarParkManger implements CarParkManager {
 			
 			Car car = new Car(vehicleId,vehicleBrand,vehicleType,year,month,day,hours,numberofDoors,carColor); 
 			
-			vehicle.add(car);
+			vehicles.add(car);
 			parkingSlots = parkingSlots +1;
 			carCount++;
 			numberOfVehicles++;
@@ -173,7 +174,7 @@ public class WestminsterCarParkManger implements CarParkManager {
 			Van van = new Van(vehicleId,vehicleBrand,vehicleType,year,month,day,hours,cargoVolume);
 			
 			parkingSlots = parkingSlots +2;
-			vehicle.add(van);
+			vehicles.add(van);
 			vanCount++;
 			numberOfVehicles++;
 		}
@@ -185,7 +186,7 @@ public class WestminsterCarParkManger implements CarParkManager {
 			MotorBike bike = new MotorBike(vehicleId,vehicleBrand,vehicleType,year,month,day,hours,engineSize);
 			
 			parkingSlots = parkingSlots +1;
-			vehicle.add(bike);
+			vehicles.add(bike);
 			bikeCount++;
 			numberOfVehicles++;
 		}
@@ -197,11 +198,11 @@ public class WestminsterCarParkManger implements CarParkManager {
 		try {
 			File carPark = new File(date);//file name is set as date 
 			PrintWriter printWriter = new PrintWriter(carPark);
-			for (int j = 0; j < vehicle.size(); j++) {
-				if (vehicle.get(j).getVehicleId() != null) {
-					printWriter.println(vehicle.get(j).getVehicleId());
+			for (int j = 0; j < vehicles.size(); j++) {
+				if (vehicles.get(j).getVehicleId() != null) {
+					printWriter.println(vehicles.get(j).getVehicleId());
 				} else {
-					printWriter.println(vehicle.get(j).getVehicleId());
+					printWriter.println(vehicles.get(j).getVehicleId());
 				}
 			}
 			System.out.println("Succesfully added");
@@ -225,10 +226,10 @@ public class WestminsterCarParkManger implements CarParkManager {
 		System.out.println("Enter the Parking Slot Number :");
 		parkingSlot = sc.nextInt();
 		
-		for(int i=0;i<vehicle.size();i++){
+		for(int i=0;i<vehicles.size();i++){
 			
-			if(vehicle.get(i).getVehicleId().equalsIgnoreCase(vehicleId) && vehicle.get(i).getVehicleType().equalsIgnoreCase(vehicleType)){
-				System.out.println("Details for vehicle "+vehicle.get(i).getVehicleId()+" deleted..");
+			if(vehicles.get(i).getVehicleId().equalsIgnoreCase(vehicleId) && vehicles.get(i).getVehicleType().equalsIgnoreCase(vehicleType)){
+				System.out.println("Details for vehicle "+vehicles.get(i).getVehicleId()+" deleted..");
 				if(vehicleType.equalsIgnoreCase("CAR") || vehicleType.equalsIgnoreCase("MOTORBIKE")){
 					parkingSlots = parkingSlots - 1;
 				}
@@ -236,7 +237,7 @@ public class WestminsterCarParkManger implements CarParkManager {
 				if(vehicleType.equalsIgnoreCase("VAN")){
 					parkingSlot = parkingSlot - 2;
 				}
-				vehicle.remove(i);
+				vehicles.remove(i);
 				numberOfVehicles--;
 			}
 		}
@@ -250,9 +251,9 @@ public class WestminsterCarParkManger implements CarParkManager {
 	public static void chronological(){
 		try{
 			System.out.println("List of the vehicles ordered Chronologically : ");
-			int index =vehicle.size()-1;
-			for(int i=0;i<vehicle.size();i++){
-				System.out.println(vehicle.get(index).getVehicleType()+" "+vehicle.get(index).getVehicleId()+" "+vehicle.get(index).getHours()+"h");
+			int index =vehicles.size()-1;
+			for(int i=0;i<vehicles.size();i++){
+				System.out.println(vehicles.get(index).getVehicleType()+" "+vehicles.get(index).getVehicleId()+" "+vehicles.get(index).getHours()+"h");
 				index--;
 			}
 		}catch(Exception e){
@@ -266,14 +267,15 @@ public class WestminsterCarParkManger implements CarParkManager {
 		double vanPercentage=0;
 		double bikePercentage=0;
 		try{
-		for(int i=0;i<vehicle.size();i++){
-			if(vehicle.get(i).getVehicleType().equalsIgnoreCase("CAR")){
+			for ()
+		for(int i=0;i<vehicles.size();i++){
+			if(vehicles.get(i).getVehicleType().equalsIgnoreCase("CAR")){
 				carPercentage = (carCount*100)/numberOfVehicles;
 			}
-			if(vehicle.get(i).getVehicleType().equalsIgnoreCase("MOTORBIKE")){
+			if(vehicles.get(i).getVehicleType().equalsIgnoreCase("MOTORBIKE")){
 				bikePercentage = (bikeCount*100)/numberOfVehicles;
 			}
-			if(vehicle.get(i).getVehicleType().equalsIgnoreCase("VAN")){
+			if(vehicles.get(i).getVehicleType().equalsIgnoreCase("VAN")){
 				vanPercentage = (vanCount*100)/numberOfVehicles;
 			}
 		}
@@ -288,14 +290,14 @@ public class WestminsterCarParkManger implements CarParkManager {
 	
 	//function to view the vehicle that was parked for the longest time and last parked vehicle
 	public void longestParkedVehicle(){
-		if(vehicle.size()!=0){
+		if(vehicles.size()!=0){
 		System.out.println("The vehicle that is parked for the longest time :");
 		System.out.println("Vehicle plate Number:"+ vehicle.get(0).getVehicleId()+"\nVehicle Type:"+vehicle.get(0).getVehicleType()+"\nVehicle Entry Time:"+vehicle.get(0).getHours()+" h");
 		
-		int i = vehicle.size()-1;
+		int i = vehicles.size()-1;
 		System.out.println();
 		System.out.println("The last vehicle that was parked :");
-		System.out.println("Vehicle plate Number:"+ vehicle.get(i).getVehicleId()+"\nVehicle Type:"+vehicle.get(i).getVehicleType()+"\nVehicle Entry Time:"+vehicle.get(i).getHours()+" h");
+		System.out.println("Vehicle plate Number:"+ vehicles.get(i).getVehicleId()+"\nVehicle Type:"+vehicles.get(i).getVehicleType()+"\nVehicle Entry Time:"+vehicles.get(i).getHours()+" h");
 		}else{
 			System.out.println("No Vehicles in the parking lot...");
 		}
@@ -327,18 +329,18 @@ public class WestminsterCarParkManger implements CarParkManager {
 		int timeDifference=0;
 		int timeDifference2=0; 
 		
-		for(int i=0;i<vehicle.size();i++){
-			checkedInTime = vehicle.get(i).getHours();
+		for(int i=0;i<vehicles.size();i++){
+			checkedInTime = vehicles.get(i).getHours();
 			timeDifference = hours - checkedInTime;
 			
 			if(timeDifference <= 3 && timeDifference > 0){
-				System.out.println(vehicle.get(i).getVehicleId()+" "+timeDifference*3+"$");
+				System.out.println(vehicles.get(i).getVehicleId()+" "+timeDifference*3+"$");
 			}else if(timeDifference > 3 && timeDifference >0){
 				timeDifference2 = (timeDifference-3)+9;
-				System.out.println(vehicle.get(i).getVehicleId()+" "+timeDifference2+"$");
+				System.out.println(vehicles.get(i).getVehicleId()+" "+timeDifference2+"$");
 				
 			}else if(timeDifference == 0 ){
-				System.out.println(vehicle.get(i).getVehicleId()+" "+30+"$");
+				System.out.println(vehicles.get(i).getVehicleId()+" "+30+"$");
 			}
 			
 		}
