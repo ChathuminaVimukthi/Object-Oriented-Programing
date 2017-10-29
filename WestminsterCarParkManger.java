@@ -291,7 +291,7 @@ public class WestminsterCarParkManger implements CarParkManager {
 	public void longestParkedVehicle(){
 		if(vehicles.size()!=0){
 		System.out.println("The vehicle that is parked for the longest time :");
-		System.out.println("Vehicle plate Number:"+ vehicle.get(0).getVehicleId()+"\nVehicle Type:"+vehicle.get(0).getVehicleType()+"\nVehicle Entry Time:"+vehicle.get(0).getHours()+" h");
+		System.out.println("Vehicle plate Number:"+ vehicles.get(0).getVehicleId()+"\nVehicle Type:"+vehicles.get(0).getVehicleType()+"\nVehicle Entry Time:"+vehicle.get(0).getHours()+" h");
 		
 		int i = vehicles.size()-1;
 		System.out.println();
