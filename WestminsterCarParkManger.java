@@ -9,8 +9,8 @@ import vehicle.park.Vehicle;
 public class WestminsterCarParkManger implements CarParkManager {
 	//arraylist to hold objects
 	static List<Vehicle> vehicle = new ArrayList<Vehicle>();
-	
-	static int parkingSlots = 0;
+	//initializing variables to zero.
+	static int parkingSlots =0;
 	static int carCount =0;
 	static int vanCount =0;
 	static int bikeCount =0;
