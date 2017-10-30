@@ -1,4 +1,4 @@
-package vehicle.park;
+package vehicle.park;  // importing vehicle package
 
 public class Vehicle {
 	private String vehicleId;
