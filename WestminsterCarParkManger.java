@@ -7,7 +7,7 @@ import vehicle.park.Car;
 import vehicle.park.Vehicle;
 
 public class WestminsterCarParkManger implements CarParkManager {
-	//arraylist to hold objects
+	//vehicle arraylist to hold vehicle objects
 	static List<Vehicle> vehicle = new ArrayList<Vehicle>();
 	
 	static int parkingSlots = 0;
@@ -26,6 +26,8 @@ public class WestminsterCarParkManger implements CarParkManager {
 	static Scanner sc = new Scanner(System.in);
 	
 	public static void main(String[] args) throws IOException{
+	
+	//creating a new westminstercarpark object
 		WestminsterCarParkManger carpark = new WestminsterCarParkManger();
 		
 		String menu = null;
@@ -98,14 +100,14 @@ public class WestminsterCarParkManger implements CarParkManager {
 		
 	}
 	
-	//function to view the vehicles currently parked
+	//view method to show the vehicles currently parked
 	public void view(){
 		for(int i=0;i<vehicle.size();i++){
 			System.out.println(vehicle.get(i).getVehicleId());
 		}
 	}
 	
-	//functions to add vehicles to the parking lot
+	// add vehicle method to add vehicles to the parking lot
 	public void addVehicle(){
 		//declaring the variables to take inputs
 		String carColor = null;
@@ -120,7 +122,7 @@ public class WestminsterCarParkManger implements CarParkManager {
 		String str[];
 		
 		try{
-		//getting inputs through scanner
+		//receiving user input through the scanner
 		System.out.println("Enter the Vehicle Plate Number :");
 		vehicleId = sc.next().toUpperCase();
 		
@@ -135,7 +137,7 @@ public class WestminsterCarParkManger implements CarParkManager {
 		
 		System.out.println("Enter the Date in the format DD.MM.YYYY :");
 		date = sc.next();
-		//splitter function to split the date into day,month and year
+		//separating date month using splitter function
 		str = date.split("\\.");
 		day = Integer.parseInt(str[0]);
 		if(day<32 && day>0){
@@ -151,7 +153,7 @@ public class WestminsterCarParkManger implements CarParkManager {
 		
 		System.out.println("Enter the time in hours the vehicle checks in :");
 		hours = sc.nextInt();
-		//checking the vehicle type and getting inputs according to the vehicle
+		//if parking lots are available adding relevant vehicle to the slot available
 		if(vehicleType.equalsIgnoreCase("CAR") && parkingSlots<21){
 			System.out.println("Enter the color of the CAR :");
 			carColor = sc.next().toUpperCase();
@@ -193,7 +195,7 @@ public class WestminsterCarParkManger implements CarParkManager {
 			System.out.println("Invalid Input..Please enter a valid Input...");
 		}
 		
-		//printing the vehicles entered into the parkinglot in each day
+		//writting output to file 
 		try {
 			File carPark = new File(date);//file name is set as date 
 			PrintWriter printWriter = new PrintWriter(carPark);
@@ -213,7 +215,7 @@ public class WestminsterCarParkManger implements CarParkManager {
 		
 	}
 	
-	//function to remove a vehicle from the parkinglot
+	//remove method to remove a vehicle from the parkinglot
 	public void remove(){
 		try{
 		System.out.println("Enter the vehicle PLATE NUMBER that is leaving :");
@@ -246,7 +248,7 @@ public class WestminsterCarParkManger implements CarParkManager {
 		
 	}
 	
-	//function to view vehicles chronologically sorted
+	//method to view the parked vehicles in chronological order
 	public static void chronological(){
 		try{
 			System.out.println("List of the vehicles ordered Chronologically : ");
@@ -260,7 +262,7 @@ public class WestminsterCarParkManger implements CarParkManager {
 		}
 	}
 	
-	//function to view the percentage of each vehicle type currently in the parkinglot
+	//method to view the percentages of  vehicles type currently in the parkinglot
 	public void vehiclePercentage(){
 		double carPercentage=0;
 		double vanPercentage=0;
@@ -286,7 +288,7 @@ public class WestminsterCarParkManger implements CarParkManager {
 		}
 	}
 	
-	//function to view the vehicle that was parked for the longest time and last parked vehicle
+	//method to view the vehicle that was parked for the longest time and last parked vehicle
 	public void longestParkedVehicle(){
 		if(vehicle.size()!=0){
 		System.out.println("The vehicle that is parked for the longest time :");
@@ -302,7 +304,7 @@ public class WestminsterCarParkManger implements CarParkManager {
 		
 	}
 	
-	//function to view the vehicles that were parked in a specified day
+	//method to view the vehicles that were parked in a specified day
 	public void specifiedDate() throws IOException{
 		try{
 		System.out.println("Enter the date to view the vehicles in the park in the specified date in the format DD.MM.YYYYY :");
@@ -319,7 +321,7 @@ public class WestminsterCarParkManger implements CarParkManager {
 		}
 	}
 	
-	//function to calculate the bill for the currently parked vehicles
+	//method to calculate the ticket for the leaving vehicles
 	public void calculateBill(){
 		System.out.println("Enter the current time in the mode of hours only :");
 		int hours = sc.nextInt();
