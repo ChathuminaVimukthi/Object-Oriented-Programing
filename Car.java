@@ -14,7 +14,10 @@ public class Car extends Vehicle{
 	public int getNumofDoors() {
 		return numofDoors;
 	}
-
+	
+	/**
+	*Sets the number of doors for the car
+	*/
 	public void setNumofDoors(int numofDoors) {
 		this.numofDoors = numofDoors;
 	}
@@ -22,7 +25,10 @@ public class Car extends Vehicle{
 	public String getColor() {
 		return color;
 	}
-
+	
+	/**
+	*Sets the color of the car
+	*/
 	public void setColor(String color) {
 		this.color = color;
 	}
