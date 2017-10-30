@@ -23,7 +23,7 @@ public class WestminsterCarParkManger implements CarParkManager {
 	static String vehicleBrand =  null;
 	static String date=null;
 	
-	static Scanner sc = new Scanner(System.in);
+	static Scanner sc = new Scanner(System.in); //New Scanner object to take user inputs
 	
 	public static void main(String[] args) throws IOException{
 	
