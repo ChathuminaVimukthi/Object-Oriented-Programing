@@ -1,6 +1,8 @@
 package vehicle.park;
 
+//Vehicle type MotorBike
 public class MotorBike extends Vehicle{
+	//Extra Feature is engineSize
 	private double engineSize;
 
 	/*Constructor for MotorBike class*/

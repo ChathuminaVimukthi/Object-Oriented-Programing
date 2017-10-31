@@ -1,9 +1,12 @@
 package vehicle.park;
 
+//Vehicle Type Car
 public class Car extends Vehicle{
+	//Extra Features numofDoors,color
 	private int numofDoors;
 	private String color;
 
+	//Constructor same as Vehicle with numofDoors and color
 	public Car(String vehicleId, String vehicleBrand, String vehicleType, int year, int month, int date, int hours,
 			int numofDoors, String color) {
 		super(vehicleId, vehicleBrand, vehicleType, year, month, date, hours);
@@ -11,6 +14,8 @@ public class Car extends Vehicle{
 		this.color = color;
 	}
 
+	//Getter & Setter Functions
+	//numofDoors
 	public int getNumofDoors() {
 		return numofDoors;
 	}
@@ -19,6 +24,7 @@ public class Car extends Vehicle{
 		this.numofDoors = numofDoors;
 	}
 
+	//color
 	public String getColor() {
 		return color;
 	}
