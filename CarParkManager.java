@@ -1,5 +1,6 @@
 import java.io.IOException;
 
+//This is a Java interface class containing methods for managing parkings, which will be implemented by services
 public interface CarParkManager {
 	
 	public void addVehicle();
