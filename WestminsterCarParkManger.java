@@ -7,7 +7,7 @@ import vehicle.park.Car;
 import vehicle.park.Vehicle;
 
 public class WestminsterCarParkManger implements CarParkManager {
-	//vehicle arraylist to hold vehicle objects
+	// vehicle arraylist to hold vehicle objects
 	static List<Vehicle> vehicle = new ArrayList<Vehicle>();
 	
 	static int parkingSlots = 0;
@@ -27,7 +27,7 @@ public class WestminsterCarParkManger implements CarParkManager {
 	
 	public static void main(String[] args) throws IOException{
 	
-	//creating a new westminstercarpark object
+	// creating a new westminstercarpark object
 		WestminsterCarParkManger carpark = new WestminsterCarParkManger();
 		
 		String menu = null;
@@ -35,7 +35,7 @@ public class WestminsterCarParkManger implements CarParkManager {
 		do{
 			System.out.println();
 
-			//menu to select functions
+			// menu to select functions
 			System.out.println("************************************************************************************************");
 			System.out.println("*                 Welcome to WESTMINSTER car park manager                                      *");
 			System.out.println("************************************************************************************************");
@@ -100,7 +100,7 @@ public class WestminsterCarParkManger implements CarParkManager {
 		
 	}
 	
-	//view method to show the vehicles currently parked
+	// view method to show the vehicles currently parked
 	public void view(){
 		for(int i=0;i<vehicle.size();i++){
 			System.out.println(vehicle.get(i).getVehicleId());
@@ -122,7 +122,7 @@ public class WestminsterCarParkManger implements CarParkManager {
 		String str[];
 		
 		try{
-		//receiving user input through the scanner
+		// receiving user input through the scanner
 		System.out.println("Enter the Vehicle Plate Number :");
 		vehicleId = sc.next().toUpperCase();
 		
@@ -153,7 +153,7 @@ public class WestminsterCarParkManger implements CarParkManager {
 		
 		System.out.println("Enter the time in hours the vehicle checks in :");
 		hours = sc.nextInt();
-		//if parking lots are available adding relevant vehicle to the slot available
+		// if parking lots are available adding relevant vehicle to the slot available
 		if(vehicleType.equalsIgnoreCase("CAR") && parkingSlots<21){
 			System.out.println("Enter the color of the CAR :");
 			carColor = sc.next().toUpperCase();
@@ -195,7 +195,7 @@ public class WestminsterCarParkManger implements CarParkManager {
 			System.out.println("Invalid Input..Please enter a valid Input...");
 		}
 		
-		//writting output to file 
+		// writting output to file 
 		try {
 			File carPark = new File(date);//file name is set as date 
 			PrintWriter printWriter = new PrintWriter(carPark);
@@ -206,8 +206,8 @@ public class WestminsterCarParkManger implements CarParkManager {
 					printWriter.println(vehicle.get(j).getVehicleId());
 				}
 			}
-			System.out.println("Succesfully added");
-			printWriter.close();
+			System.out.println("Succesfully added")
+			printWriter.close();//closing printwriter
 		} 
 		catch (IOException e) {
 			System.out.println("Check your file.");
