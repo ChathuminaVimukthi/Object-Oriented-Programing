@@ -1,4 +1,4 @@
-package vehicle.park;
+package vehicle.park;  // importing vehicle package
 
 //model class for vehicles
 public class Vehicle {
