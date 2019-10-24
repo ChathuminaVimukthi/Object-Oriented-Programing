@@ -10,11 +10,12 @@ public class Van extends Vehicle {
 		this.cargoVolume = cargoVolume;
 	}
 
-	//Setter and getter for cargoVolume
+	//This getter method to get the cargoVolume
 	public double getCargoVolume() {
 		return cargoVolume;
 	}
 
+	//This setter method to set the cargoVolume
 	public void setCargoVolume(double cargoVolume) {
 		this.cargoVolume = cargoVolume;
 	}
